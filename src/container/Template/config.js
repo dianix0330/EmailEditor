@@ -1,22 +1,16 @@
-export const configOptions = [
-  {
-    component: "Image",
-    props: {
-      imageURL: "text"
-    }
+export const configOptions = {
+  "Images": {
+    imageUrl: "",
   },
-  {
-    component: "Title",
-    props: {
-      text: "text",
-      align: ["left", "center", "right"]
-    }
+
+  "Title": {
+    text: "",
+    size: ["H1", "H2", "H3"],
+    align: ["left", "center", "right"],
   },
-  {
-    component: "Paragraph",
-    props: {
-      text: "text",
-      align: ["left", "center", "right"]
-    }
-  }
-]
+
+  "Paragraph": {
+    text: "",
+    align: ["left", "center", "right"],
+  },
+};

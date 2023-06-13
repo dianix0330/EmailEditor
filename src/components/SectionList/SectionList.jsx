@@ -2,13 +2,13 @@ import React from "react";
 import Section from "../Section/Section";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
-const SectionList = ({ sections, onDragEnd }) => {
+const SectionList = ({ components, onDragEnd }) => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId="section-list">
         {(provided) => (
           <ul {...provided.droppableProps} ref={provided.innerRef}>
-            {sections.map((section, index) => (
+            {components.map((section, index) => (
               <Draggable
                 key={section.id}
                 draggableId={section.id}

@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-
 import { Template } from "./container";
 import "./styles/App.css";
 import "./styles/tailwind-pre-build.css";

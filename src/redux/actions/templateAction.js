@@ -5,6 +5,15 @@ const addComponent = (body) => ({
   },
 })
 
+const exchangeComponent = (startIndex, endIndex) => ({
+  type: 'EXCHANGE_COMPONENTS',
+  payload: {
+    startIndex,
+    endIndex
+  },
+})
+
 export default {
   addComponent,
+  exchangeComponent,
 }

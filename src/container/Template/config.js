@@ -1,15 +1,15 @@
 export const configOptions = {
-  "Images": {
+  "image": {
     imageUrl: "",
   },
 
-  "Title": {
+  "title": {
     text: "",
     size: ["H1", "H2", "H3"],
     align: ["left", "center", "right"],
   },
 
-  "Paragraph": {
+  "paragraph": {
     text: "",
     align: ["left", "center", "right"],
   },

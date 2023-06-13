@@ -2,7 +2,8 @@ import React from "react";
 import Section from "../Section/Section";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
-const SectionList = ({ components, onDragEnd }) => {
+const SectionList = ({ components, onDragEnd}) => {
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId="section-list">

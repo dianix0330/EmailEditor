@@ -30,10 +30,16 @@ export default function Template({}) {
     setShowModal(false);
   };
 
+  const handleDragEvent = (result) => {
+    const startIndex = result.source.index;
+    const endIndex = result.destination.index;
+
+    dispatch(actions.templateAction.exchangeComponent(startIndex, endIndex));
+  }
   return (
     <>
-      <div className="flex flex-col w-1/3 align-center mt-6 border border-dashed border border-black">
-        {<SectionList components={components ?? []} />}
+      <div className="flex flex-col w-1/3 align-center mt-6 p-5 border border-dashed border border-black">
+        {<SectionList components={components ?? []} onDragEnd={handleDragEvent}/>}
         <div
           className="flex flex-col items-center justify-center border-dashed border-black border-b-1 w-full h-48 hover:bg-gray-200"
           onClick={() => setShowModal(true)}
@@ -67,7 +73,7 @@ export default function Template({}) {
                   onChange={handleComponentChange}
                 >
                   {configs?.map((config, index) => (
-                    <option key={index} value={config}>
+                    <option key={index} value={config} className="capitalize">
                       {config}
                     </option>
                   ))}

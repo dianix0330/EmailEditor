@@ -1,6 +1,10 @@
+export { default as Banner } from "./Banner/Banner";
+export { default as Modal } from "./Modal/Modal";
 export { default as Image } from "./Image/Image";
 export { default as Title } from "./Title/Title";
+export { default as Toggle } from "./Toggle/Toggle";
 export { default as Section } from "./Section/Section";
 export { default as Settings } from "./Settings/Settings";
+export { default as SocialCampaign } from "./SocialCampaign/SocialCampaign";
 export { default as Paragraph } from "./Paragraph/Paragraph";
 export { default as SectionList } from "./SectionList/SectionList";

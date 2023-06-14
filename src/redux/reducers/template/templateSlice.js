@@ -21,6 +21,17 @@ export default function templateReducer(state = initialState, action) {
       };
       return updateState;
     }
+    case "UPDATE_COMPONENT": {
+      const { index, body } = action.payload;
+      const newComponents = [...state.components];
+      newComponents[index] = body;
+      
+      console.log(newComponents);
+      const updateState = {
+        components: newComponents,
+      };
+      return updateState;
+    }
     default:
       return state;
   }

@@ -1,8 +1,8 @@
 const initialState = {
   subject: "",
-  bannerURL: "",
-  showBanner: false,
-  showSocialCampaign: false,
+  bannerURL: "assets/images/Banner.png",
+  showBanner: true,
+  showSocialCampaign: true,
 }
 
 export default function frameSlice(state = initialState, action) {

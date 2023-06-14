@@ -1,5 +1,8 @@
-import React from "react";
 
-export default function Paragraph({}) {
-  return <></>
+export default function Paragraph({ text, align }) {
+  return (
+    <p className={`font-serif text-${align}`}>
+      {text}
+    </p>
+  );
 }

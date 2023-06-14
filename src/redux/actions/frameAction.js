@@ -3,8 +3,8 @@ const setSubject = (subject) => ({
   payload: subject
 })
 
-const setBaseURL = (baseURL) => ({
-  type: 'SET_BASE_URL',
+const setBannerURL = (baseURL) => ({
+  type: 'SET_BANNER_URL',
   payload: baseURL
 })
 
@@ -20,7 +20,7 @@ const setShowSocialCampaign = (showSocialCampaign) => ({
 
 export default {
   setSubject,
-  setBaseURL,
+  setBannerURL,
   setShowBanner,
   setShowSocialCampaign,
 }

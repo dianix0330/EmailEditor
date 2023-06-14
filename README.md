@@ -42,4 +42,4 @@ In the template composer
 - A user should be able to select an element that has been added to the template composer, and edit its properties within the inspector.
 - A user should be able to save the template; Save the template by sending the json output of the template to the url provided in the   API documentation provided.
 
-## Live Demo [https://apexnetwork-email-editor.netlify.app/]
+## [Live Demo(https://apexnetwork-email-editor.netlify.app/)]

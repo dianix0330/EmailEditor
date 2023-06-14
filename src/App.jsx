@@ -3,7 +3,8 @@
  *
  * @return {JSX.Element} The main component of the app.
  */
-import { Banner, Toggle, SocialCampaign } from "./components";
+import { useState } from "react";
+import { Banner, Toggle, SocialCampaign, Alert } from "./components";
 import { Template } from "./container";
 import { useSelector, useDispatch } from "react-redux";
 import actions from "./redux/actions";
@@ -11,8 +12,14 @@ import "./styles/App.css";
 import "./styles/tailwind-pre-build.css";
 
 function App() {
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveStatus, setSaveStatus] = useState("");
+  const [saveMessage, setSaveMessage] = useState("");
+  const [showAlert, setShowAlert] = useState(true);
+
   const bannerURL = useSelector((state) => state.frame.bannerURL);
   const showBanner = useSelector((state) => state.frame.showBanner);
+  const templateComponents = useSelector((state) => state.template.components);
   const showSocialCampaign = useSelector(
     (state) => state.frame.showSocialCampaign
   );
@@ -27,6 +34,44 @@ function App() {
 
   const handleSocialCampaignToggle = () => {
     disptach(actions.frameActions.setShowSocialCampaign(!showSocialCampaign));
+  };
+
+  const handleAlertClose = () => {
+    setShowAlert(false);
+  };
+  const postComponentsData = (templateComponents) => {
+    return templateComponents.map((componentData) => {
+      const { id, component, ...rest } = componentData;
+      return rest;
+    });
+  };
+  const handleSaveTemplate = async () => {
+    setIsSaving(true);
+    const templateData = {
+      template: {
+        subject: "Welcome to your Recruitment test",
+        bannerImageUrl: bannerURL,
+        showSocialCampaign: showSocialCampaign,
+        body: postComponentsData(templateComponents),
+      },
+    };
+    const stringData = JSON.stringify(templateData).replace(/"/g, "'");
+
+    const data = {
+      template: stringData,
+    };
+
+    const result = await disptach(actions.createTemplate(data));
+
+    if (result.errors) {
+      setSaveStatus("error");
+    } else {
+      setSaveStatus("success");
+    }
+
+    setSaveMessage(result.message);
+    setShowAlert(true);
+    setIsSaving(false);
   };
   return (
     <main className="App bg-gray-300">
@@ -46,9 +91,19 @@ function App() {
           value={showSocialCampaign}
           onToggleEvent={handleSocialCampaignToggle}
         />
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Save Template
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          onClick={handleSaveTemplate}
+        >
+          {isSaving ? "Saving..." : "Save Template"}
         </button>
+        <div className={`${showAlert ? "fadeOut" : "fadeIn"} absolute`}>
+          <Alert
+            type={saveStatus}
+            message={saveMessage}
+            handleClick={handleAlertClose}
+          />
+        </div>
       </div>
       <hr className="border-t border-gray-500 my-6 w-1/2"></hr>
       {showSocialCampaign && <SocialCampaign />}

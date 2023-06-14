@@ -1010,6 +1010,33 @@ video {
   border-bottom-width: 0px;
 }
 
+.fadeOut {
+  left: 0px;
+  animation: fadeOut 0.25s forwards;
+}
+
+@keyframes fadeOut { 
+  0% {
+    left: -100px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+.fadeIn{
+  opacity: 0;
+  animation: fadeIn 0.25s forwards;
+}
+
+@keyframes fadeIn { 
+  0% {
+    opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
 .hover\:bg-transparent:hover {
   background-color: transparent;
 }

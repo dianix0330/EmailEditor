@@ -3,7 +3,7 @@ const initialState = {
   bannerURL: "assets/images/Banner.png",
   showBanner: true,
   showSocialCampaign: true,
-}
+};
 
 export default function frameSlice(state = initialState, action) {
   switch (action.type) {

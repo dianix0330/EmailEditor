@@ -1,3 +1,4 @@
+export { default as Alert } from "./Alert/Alert";
 export { default as Banner } from "./Banner/Banner";
 export { default as Modal } from "./Modal/Modal";
 export { default as Image } from "./Image/Image";
